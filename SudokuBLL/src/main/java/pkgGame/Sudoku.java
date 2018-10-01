@@ -249,4 +249,28 @@ public class Sudoku extends LatinSquare {
 	public boolean isValidValue(int iCol, int iRow, int iValue) {
 		return false;
 	}
+	
+	private void FillDiagonalRegions() {
+		
+		for(int i = 0; i < iSize; i+= iSqrtSize+1)
+			SetRegion(i);
+		
+	}
+	
+	private void SetRegion(int r) {
+		
+		int j = (r % iSqrtSize) * iSqrtSize;
+		int i = (r / iSqrtSize) * iSqrtSize;
+		int jMax = j + iSqrtSize;
+		int iMax = i + iSqrtSize;
+		int iCnt = 1;
+
+		for (; i < iMax; i++) {
+			for (j = (r % iSqrtSize) * iSqrtSize; j < jMax; j++) {
+				getLatinSquare()[i][j] = iCnt++;
+			}
+		}
+		
+	}
+	
 }
