@@ -252,8 +252,12 @@ public class Sudoku extends LatinSquare {
 	
 	private void FillDiagonalRegions() {
 		
-		for(int i = 0; i < iSize; i+= iSqrtSize+1)
+		for(int i = 0; i < iSize; i+= iSqrtSize+1) {
+			
 			SetRegion(i);
+			ShuffleRegion(i);
+			
+		}
 		
 	}
 	
@@ -270,6 +274,12 @@ public class Sudoku extends LatinSquare {
 				getLatinSquare()[i][j] = iCnt++;
 			}
 		}
+		
+	}
+	
+	private void ShuffleRegion(int r) {
+		
+		//randomize values in region
 		
 	}
 	
